@@ -1,3 +1,4 @@
 {
+    "baseUrl": "https://stg-fr.rajapack.xyz",
     "testFiles": "**/*.feature"
 }
