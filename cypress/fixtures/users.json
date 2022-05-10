@@ -1,0 +1,21 @@
+[
+    {
+        "admin": {
+            "email": "admingp3@data.fr",
+            "password": "test"
+        }
+    },
+    {
+        "approval": {
+            "email": "approvalgp3@data.fr",
+            "password": "test"
+        }
+    },
+    {
+        "buyer": {
+            "email": "byergp3@data.fr",
+            "password": "test"
+        }
+    }
+
+]
