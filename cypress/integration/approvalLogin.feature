@@ -13,3 +13,4 @@ Feature: login approval
         And The user follows on login link
         When A user enters invalid credentials
         Then An error message displayed "Couple login/mot de passe invalide"  
+

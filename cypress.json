@@ -1,6 +1,14 @@
 {
     "baseUrl": "https://stg-fr.rajapack.xyz",
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report",
+        "charts": true,
+        "reportPageTitle": "test-rapport"
+      },
+    "video": false,
     "testFiles": "**/*.feature",
     "viewportWidth": 1920,
-    "viewportHeight": 1080
+    "viewportHeight": 1080,    
+    "chromeWebSecurity": false 
 }

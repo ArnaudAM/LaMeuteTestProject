@@ -6,17 +6,18 @@ let users = require("../../fixtures/users.json")
 Before(function () {
     Given("A user on home page", () => {
         cy.visit("/");
-    }) 
+    })
+
     And("The user follows on login link", () => {
         cy.get('.icon-account').click()
     }) 
 })
 
+
 When("He enter valid credentials", () => {
     cy.get("#UserLoginDropdown").type(users[1]["approval"]["email"])
     cy.get("#UserPasswordDropdown").type(users[1]["approval"]["password"])
     cy.get(".js-connexion-submit").click()
-
 })
 
 Then("Url contains {string}", (message) => {
