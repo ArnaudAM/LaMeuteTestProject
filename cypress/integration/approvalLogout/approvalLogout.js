@@ -3,18 +3,23 @@
 import { Given, When, Then, And, Before } from "cypress-cucumber-preprocessor/steps";
 
 let users = require("../../fixtures/users")
+let email = users[1]["approval"]["email"]
+let password = users[1]["approval"]["password"]
 
 Given("A logged approval on home page", () => {
-    cy.visit("/")
-    cy.get('.icon-account').click()
-    cy.get('#UserLoginDropdown').type(users[1]["approval"]["email"])
-    cy.get('#UserPasswordDropdown').type(users[1]["approval"]["password"])
-    cy.get('.js-connexion-submit').click()
+    // cy.visit("/")
+    // cy.get('.icon-account').click()
+    // cy.get('#UserLoginDropdown').type(users[1]["approval"]["email"])
+    // cy.get('#UserPasswordDropdown').type(users[1]["approval"]["password"])
+    // cy.get('.js-connexion-submit').click()
+    cy.login(email, password).then((response) => {
+        expect(response.status).to.eq(200)
+    })
 })
 
 
 And("Approval follows my account link", () => {
-    cy.wait(2000)
+    cy.visit("/")
     cy.get('.icon-account').click({force:true})
 })
 
