@@ -18,12 +18,6 @@ When("the buyer checks his cart", () => {
   cy.get('span:contains("Ajouter au panier"):first').click();
   cy.wait(1500);
   cy.get('span:contains("Voir le panier"):first').click({ force: true });
-  // cy.get(".total-price")
-  //   .invoke("text")
-  //   .then((money) => {
-  //     let intermediateSum = parseInt(money, 10);
-  //     cy.log(intermediateSum);
-  //   });
 });
 Then("he should see a finaliser button", () => {
   cy.wait(1000);
@@ -37,16 +31,12 @@ And(
   () => {
     cy.scrollTo("bottom");
     cy.wait(1800);
-    // cy.get("div:contains(\"j'ai lu et j'accepte les\")").should("be.visible");
+    cy.get("a:contains('Conditions Générales de Vente')").should("be.visible");
   }
 );
 And(
   "he should be able to check j'ai lu et j'accepte les conditions de vente checkbox",
   () => {
-    // cy.log(cy.get('[type="checkbox"]'));
-    // cy.get('[class="icheck_line-icon"]').check();
-    // cy.get('[class="icheck_line-icon"]').click();
-    // cy.get(".icheck_line-icon").click();
     cy.get(".icheckbox_line > .iCheck-helper").click({ force: true });
   }
 );
@@ -54,4 +44,14 @@ And("he should be able to valider le paiment", () => {
   cy.get('[data-testing-id="ISH_INVOICE"]').click();
   cy.get('span:contains("Valider le paiement"):first').click();
   cy.get(".title__confirmation").should("contain.text", "Commande confirmée");
+
+  cy.get(".confirmation-title > span:first")
+    .invoke("text")
+    .then((number) => {
+      cy.log(number);
+      cy.task("setCommandNumber", number);
+    });
+  cy.task("getCommandNumber").then((response) => {
+    cy.log(response);
+  });
 });
