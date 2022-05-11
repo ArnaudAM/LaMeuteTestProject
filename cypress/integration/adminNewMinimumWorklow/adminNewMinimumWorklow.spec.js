@@ -3,6 +3,14 @@ let users = require("../../fixtures/users")
 let email = users[0]["admin"]["email"]
 let password = users[0]["admin"]["password"]
 
+let workflows = require("../../fixtures/workflows")
+let workflowName = workflows[2]["minimum"]["workflowName"]
+let code = workflows[2]["minimum"]["code"]
+let trigger = workflows[2]["minimum"]["trigger"]
+let max = workflows[2]["minimum"]["max"]
+let validator = workflows[2]["minimum"]["validator"]
+let min = workflows[2]["minimum"]["min"]
+
 Given("I am authenticated as Administrator", () => {
   cy.login(email, password).then(response => {
     expect(response.status).to.eq(200)
@@ -17,14 +25,7 @@ Given("I am authenticated as Administrator", () => {
 });
   
   When("I create a Minimum amount workflow", () => {
-    cy.get('#AdminWorkflows > .flex > a > .text-lightGrey').click()
-    cy.get('[id="workflow_id"]').type('GP3 minimum code')
-    cy.get('[id="workflow_name"]').type('GP3 minimum name')
-    cy.get('[type="checkbox"]').check({force:true})
-    cy.get('[id="workflow_trigger"]').select("MINIMUM")
-    cy.get('[id="workflow_max"]').type('1000')
-    cy.get('[id="workflow_validator1"]').select("yJEK_clgaPsAAAGAKvenTKgk")
-    cy.get('[id="workflow_min"]').type('2000')
+    cy.createWorkflow(code, workflowName, trigger, max, validator, min)
     cy.get('[id="create"]').should('contain.text', 'Valider').click()
   });
   
