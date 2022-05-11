@@ -25,8 +25,7 @@ module.exports = (on, config) => {
 
     getCommandNumber() {
       return commandNumber || null;
-    },
-
-    // require('cypress-mochawesome-reporter/plugin')(on);
+    }
   });
+  require('cypress-mochawesome-reporter/plugin')(on);
 };
