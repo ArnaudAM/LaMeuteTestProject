@@ -13,7 +13,7 @@
         "budget": {
             "workflowName": "GP3 budget name",
             "code": "GP3 budget code",
-            "trigger": "budget",
+            "trigger": "BUDGET",
             "max": "1000",
             "validator": "yJEK_clgaPsAAAGAKvenTKgk",
             "min": "2000"

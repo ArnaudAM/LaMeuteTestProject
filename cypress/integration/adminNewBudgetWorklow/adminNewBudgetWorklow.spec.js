@@ -3,6 +3,14 @@ let users = require("../../fixtures/users")
 let email = users[0]["admin"]["email"]
 let password = users[0]["admin"]["password"]
 
+let workflows = require("../../fixtures/workflows")
+let workflowName = workflows[1]["budget"]["workflowName"]
+let code = workflows[1]["budget"]["code"]
+let trigger = workflows[1]["budget"]["trigger"]
+let max = workflows[1]["budget"]["max"]
+let validator = workflows[1]["budget"]["validator"]
+let min = workflows[1]["budget"]["min"]
+
 Given("I am authenticated as Administrator", () => {
   cy.login(email, password).then(response => {
     expect(response.status).to.eq(200)
@@ -17,14 +25,7 @@ Given("I am authenticated as Administrator", () => {
 });
   
   When("I create a Budget amount workflow", () => {
-    cy.get('#AdminWorkflows > .flex > a > .text-lightGrey').click()
-    cy.get('[id="workflow_id"]').type('GP3 budget code')
-    cy.get('[id="workflow_name"]').type('GP3 budget name')
-    cy.get('[type="checkbox"]').check({force:true})
-    cy.get('[id="workflow_trigger"]').select("BUDGET")
-    cy.get('[id="workflow_max"]').type('1000')
-    cy.get('[id="workflow_validator1"]').select("yJEK_clgaPsAAAGAKvenTKgk")
-    cy.get('[id="workflow_min"]').type('2000')
+    cy.createWorkflow(code, workflowName, trigger, max, validator, min)
     cy.get('[id="create"]').should('contain.text', 'Valider').click()
   });
   
