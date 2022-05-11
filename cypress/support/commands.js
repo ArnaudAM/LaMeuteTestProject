@@ -1,3 +1,6 @@
+import "cypress-file-upload";
+require("cypress-downloadfile/lib/downloadFileCommand");
+
 Cypress.Commands.add("login", (email, pw) => {
   cy.request({
     url: "/INTERSHOP/web/WFS/RAJA-FR-Site/fr_FR/-/EUR/ViewUserLogin-ProcessLogin",

@@ -63,7 +63,9 @@ And("he should have a numéro de commande", () => {
     .then((number) => {
       cy.log(number);
       cy.task("setCommandNumber", number);
-      cy.writeFile("cypress/fixtures/commandNumber.txt", number);
+      cy.writeFile("cypress/fixtures/commandNumber.json", {
+        commandNumber: number,
+      });
     });
   cy.task("getCommandNumber").then((response) => {
     cy.log(response);

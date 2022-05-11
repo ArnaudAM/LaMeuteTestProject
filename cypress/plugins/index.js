@@ -6,6 +6,12 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
  */
 // eslint-disable-next-line no-unused-vars
 
+const { downloadFile } = require("cypress-downloadfile/lib/addPlugin");
+
+module.exports = (on, config) => {
+  on("task", { downloadFile });
+};
+
 module.exports = (on, config) => {
   on("file:preprocessor", cucumber());
 
