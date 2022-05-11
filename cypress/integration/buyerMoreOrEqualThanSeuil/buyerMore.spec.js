@@ -22,9 +22,12 @@ When("the buyer checks his cart", () => {
 Then("he should see a Faire valider ma commande button", () => {
   cy.wait(2000);
   cy.get('span:contains("Faire valider ma commande"):first').click();
+  cy.wait(1000);
 });
 And("he should see a Faire valider la livraison button", () => {
   cy.get('span:contains("Faire valider la livraison"):first').click();
+  cy.get(":nth-child(1) > .br-1 > .styled-radio > .styled-radio--box").click();
+  cy.get('button:contains("Valider")').click();
 });
 And(
   "he should see a j'ai lu et j'accepte les conditions de vente checkbox",
@@ -60,6 +63,7 @@ And("he should have a numéro de commande", () => {
     .then((number) => {
       cy.log(number);
       cy.task("setCommandNumber", number);
+      cy.writeFile("cypress/fixtures/commandNumber.txt", number);
     });
   cy.task("getCommandNumber").then((response) => {
     cy.log(response);

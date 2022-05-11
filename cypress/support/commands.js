@@ -12,7 +12,7 @@ Cypress.Commands.add("login", (email, pw) => {
 });
 
 Cypress.Commands.add("deconnexion", () => {
-  cy.visit("/");
+  // cy.visit("/");
   cy.get(".icon-account").click({ force: true });
   cy.wait(2000);
   cy.get('[data-test-id="signOutButton"]').click({ force: true });
