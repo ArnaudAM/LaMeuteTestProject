@@ -26,6 +26,6 @@ Given("I am authenticated as Administrator", () => {
   });
   
   Then("I have the corresponding workflow name", () => {
-    cy.get('tbody > :nth-child(1) > :nth-child(2)').should('contain.text', 'GP3 PNICF code')
+    cy.get('tbody > :nth-child(1) > :nth-child(2)').should('contain.text', 'Arnaud')
     // cy.get('[data-ml-close="Annuler"]').click()
   });
