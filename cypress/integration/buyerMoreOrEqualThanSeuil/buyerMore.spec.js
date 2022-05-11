@@ -64,4 +64,6 @@ And("he should have a numéro de commande", () => {
   cy.task("getCommandNumber").then((response) => {
     cy.log(response);
   });
+
+  cy.deconnexion();
 });
