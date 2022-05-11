@@ -16,13 +16,14 @@ Given("I am authenticated as Administrator", () => {
   cy.get('h1').should('contain', "Administration")
 });
   
-  When("I delete a workflow of a buyer", () => {
+  When("I assign a workflow to a buyer", () => {
     cy.get('[id="Users"]').click()
     cy.get('[id="edit_fr_FR_byergp3@data.fr"]').click()
-    cy.get('[id="delete_Workflow_1"]').click()
-    cy.get('[class="button__primary"]').should('contain.text', 'Valider').click()
+    cy.get('#AdminWorkflows > .flex > a > .text-lightGrey').click()
+    cy.get('tbody > :nth-child(2) > :nth-child(1) > .icheckbox_line > .iCheck-helper').click()
+    cy.get('[class="button__primary mr-auto"]').should('contain.text', 'Valider').click()
   });
   
-  Then("I have NOT the corresponding workflow name", () => {
-    cy.get('[class="text-center"]').should('contain.text', 'Aucun workflow.')
+  Then("I have the corresponding workflow name", () => {
+    cy.get('#AdminWorkflows > .std-table > tbody > tr > :nth-child(2)').should('contain.text', 'GP3 amount code')
   });
