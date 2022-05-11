@@ -1,0 +1,42 @@
+[
+    {
+        "amount": {
+            "workflowName": "GP3 amount name",
+            "code": "GP3 amount code",
+            "trigger": "AMOUNT",
+            "max": "1000",
+            "validator": "yJEK_clgaPsAAAGAKvenTKgk",
+            "min": "2000"
+        }
+    },
+    {
+        "budget": {
+            "workflowName": "GP3 budget name",
+            "code": "GP3 budget code",
+            "trigger": "budget",
+            "max": "1000",
+            "validator": "yJEK_clgaPsAAAGAKvenTKgk",
+            "min": "2000"
+        }
+    },
+    {
+        "minimum": {
+            "workflowName": "GP3 minimum name",
+            "code": "GP3 minimum code",
+            "trigger": "MINIMUM",
+            "max": "1000",
+            "validator": "yJEK_clgaPsAAAGAKvenTKgk",
+            "min": "2000"
+        }
+    },
+    {
+        "pnicf": {
+            "workflowName": "CSV TEST ARNAUD",
+            "code": "CSV TEST ARNAUD CODE",
+            "trigger": "PRODUCT_NOT_IN_CATALOG_FILTER",
+            "max": "1000",
+            "validator": "yJEK_clgaPsAAAGAKvenTKgk",
+            "min": "2000"
+        }
+    }
+]
