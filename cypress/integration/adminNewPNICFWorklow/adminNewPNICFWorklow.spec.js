@@ -3,6 +3,14 @@ let users = require("../../fixtures/users")
 let email = users[0]["admin"]["email"]
 let password = users[0]["admin"]["password"]
 
+let workflows = require("../../fixtures/workflows")
+let workflowName = workflows[3]["pnicf"]["workflowName"]
+let code = workflows[3]["pnicf"]["code"]
+let trigger = workflows[3]["pnicf"]["trigger"]
+let max = workflows[3]["pnicf"]["max"]
+let validator = workflows[3]["pnicf"]["validator"]
+let min = workflows[3]["pnicf"]["min"]
+
 Given("I am authenticated as Administrator", () => {
   cy.login(email, password).then(response => {
     expect(response.status).to.eq(200)
@@ -17,18 +25,11 @@ Given("I am authenticated as Administrator", () => {
 });
   
   When("I create a PNICF workflow", () => {
-    cy.get('#AdminWorkflows > .flex > a > .text-lightGrey').click()
-    cy.get('[id="workflow_id"]').type('GP3 PNICF code')
-    cy.get('[id="workflow_name"]').type('GP3 PNICF name')
-    cy.get('[type="checkbox"]').check({force:true})
-    cy.get('[id="workflow_trigger"]').select("PRODUCT_NOT_IN_CATALOG_FILTER")
-    cy.get('[id="workflow_max"]').type('1000')
-    cy.get('[id="workflow_validator1"]').select("yJEK_clgaPsAAAGAKvenTKgk")
-    cy.get('[id="workflow_min"]').type('2000')
+    cy.createWorkflow(code, workflowName, trigger, max, validator, min)
     cy.get('[id="create"]').should('contain.text', 'Valider').click()
   });
   
   Then("I have a validation message", () => {
-    cy.get('[class="modal-body"]').should('contain.text', '\nLe workflow GP3 PNICF name a été créé\n\n\n\n\n\nFermer\n\n\n')
+    cy.get('[class="modal-body"]').should('contain.text', '\nLe workflow CSV TEST ARNAUD a été créé\n\n\n\n\n\nFermer\n\n\n')
     cy.get('[data-ml-close="Annuler"]').click()
   });
