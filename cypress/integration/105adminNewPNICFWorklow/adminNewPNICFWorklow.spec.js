@@ -30,6 +30,6 @@ Given("I am authenticated as Administrator", () => {
   });
   
   Then("I have a validation message", () => {
-    cy.get('[class="modal-body"]').should('contain.text', '\nLe workflow CSV TEST ARNAUD a été créé\n\n\n\n\n\nFermer\n\n\n')
+    cy.get('[class="modal-body"]').should('contain.text', '\nLe workflow GP3 PNICF name a été créé\n\n\n\n\n\nFermer\n\n\n')
     cy.get('[data-ml-close="Annuler"]').click()
   });

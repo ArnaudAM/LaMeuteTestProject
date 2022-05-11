@@ -16,16 +16,13 @@ Given("I am authenticated as Administrator", () => {
   cy.get('h1').should('contain', "Administration")
 });
   
-  When("I assign a workflow to a buyer", () => {
+  When("I delete a workflow of a buyer", () => {
     cy.get('[id="Users"]').click()
     cy.get('[id="edit_fr_FR_byergp3@data.fr"]').click()
-    cy.get('#AdminWorkflows > .flex > a > .text-lightGrey').click()
-    // cy.get('[type="checkbox"]').check()
-    cy.get('tbody > :nth-child(1) > :nth-child(1) > .icheckbox_line > .iCheck-helper').click()
-    cy.get('[class="button__primary mr-auto"]').should('contain.text', 'Valider').click()
+    cy.get('[id="delete_Workflow_1"]').click()
+    cy.get('[class="button__primary"]').should('contain.text', 'Valider').click()
   });
   
-  Then("I have the corresponding workflow name", () => {
-    cy.get('tbody > :nth-child(1) > :nth-child(2)').should('contain.text', 'Arnaud')
-    // cy.get('[data-ml-close="Annuler"]').click()
+  Then("I have NOT the corresponding workflow name", () => {
+    cy.get('#AdminWorkflows > .std-table > tbody > tr > .text-center').should('contain.text', 'Aucun workflow.')
   });

@@ -31,8 +31,8 @@
     },
     {
         "pnicf": {
-            "workflowName": "CSV TEST ARNAUD",
-            "code": "CSV TEST ARNAUD CODE",
+            "workflowName": "GP3 PNICF name",
+            "code": "GP3 PNICF code",
             "trigger": "PRODUCT_NOT_IN_CATALOG_FILTER",
             "max": "1000",
             "validator": "yJEK_clgaPsAAAGAKvenTKgk",
