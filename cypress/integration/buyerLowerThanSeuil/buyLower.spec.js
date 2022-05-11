@@ -54,4 +54,6 @@ And("he should be able to valider le paiment", () => {
   cy.task("getCommandNumber").then((response) => {
     cy.log(response);
   });
+
+  cy.deconnexion();
 });
