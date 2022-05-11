@@ -21,6 +21,7 @@ When("the buyer checks his cart", () => {
 });
 Then("he should see a finaliser button", () => {
   cy.wait(1000);
+  cy.get('[class="qty"] > span > input').clear().type(7);
   cy.get('span:contains("Finaliser"):first').click();
 });
 And("he should be able to valider la livraison", () => {
@@ -54,6 +55,5 @@ And("he should be able to valider le paiment", () => {
   cy.task("getCommandNumber").then((response) => {
     cy.log(response);
   });
-
   cy.deconnexion();
 });
