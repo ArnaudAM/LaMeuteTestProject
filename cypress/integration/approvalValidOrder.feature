@@ -1,4 +1,4 @@
-feature: valid order approval
+Feature: valid order approval
 
     Scenario: Approval validates order 
         Given Approval on home page
