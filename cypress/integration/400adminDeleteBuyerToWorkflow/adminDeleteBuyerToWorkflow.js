@@ -11,9 +11,6 @@ Given("I am authenticated as Administrator", () => {
   cy.wait(1000)
   cy.url().should('contain', "ViewHomepage-Start")
   cy.get('h1').should('contain', "Tableau de bord")
-  cy.get('[id="Admin"]').click()
-  cy.url().should('contain', "ViewAccountAdministration-Start")
-  cy.get('h1').should('contain', "Administration")
 });
   
   When("I delete a workflow of a buyer", () => {
