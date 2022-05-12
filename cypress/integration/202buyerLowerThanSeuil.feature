@@ -1,4 +1,4 @@
-Feature: a buyer who places an order
+Feature: Orders less than seuil de commande value
         Scenario: a buyer orders less than seuil de commande value
 
                 Given a logged buyer

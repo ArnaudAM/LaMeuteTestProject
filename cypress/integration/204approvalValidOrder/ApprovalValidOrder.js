@@ -30,7 +30,7 @@ And("He confirms validation", () => {
 
 Then("{string} is displayed", (message) => {
     cy.get(".modal-title").should('contain', message)
-    
+    cy.get('[data-ml-close="Annuler"]').click()
 })
 
 And("The order as a status {string}", (status) => {
