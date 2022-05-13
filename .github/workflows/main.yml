@@ -1,0 +1,29 @@
+name: Cypress Tests Raja
+
+on: [push, workflow_dispatch]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Install NPM dependencies, cache them correctly
+      - name: install dependencies
+        run: npm ci
+
+      # and run all Cypress tests and publish tests report
+      - name: run tests
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+
+        # run: npx cypress run
+
+      - name: Publish HTML report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: html-report
+          path: cypress/report/*
