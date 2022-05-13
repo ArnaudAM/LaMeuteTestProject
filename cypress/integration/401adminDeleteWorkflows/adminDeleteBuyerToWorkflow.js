@@ -17,12 +17,16 @@ Given("I am authenticated as Administrator", () => {
 });
   
 When("I delete workflows", () => {
-  for (let i = 0; i < 4; i++) {
-    cy.get('#delete_Workflow_1').click()
-    cy.get('.button__primary').should('contain', "Valider").click()
-    cy.wait(500)
-  }
-  });
+  cy.get('#AdminWorkflows > .std-table > tbody > tr').its('length').then(n => {
+    cy.log(n)
+    for (let i = n; i > 0; i--) {
+      cy.get('#delete_Workflow_1').click()
+      cy.get('.button__primary').should('contain', "Valider").click()
+      cy.wait(500)
+    }
+  })
+
+});
   
   Then("I have not items in workflow list", () => {
     cy.get('#AdminWorkflows > .std-table > tbody > tr > .text-center').should('contain.text', 'Aucun workflow.')
