@@ -11,14 +11,15 @@ Given("I am authenticated as User", () => {
 When("I navigate on my favorites movies", () => {
   cy.get(':nth-child(6) > .nav-link > span').click()
   cy.get('[id="favorites"]').should('contain.text', 'Films').click()
-  cy.url().should('contain', "https://la-meute.jeremy-gueriba.fr/videos/favorites/1/1")
   cy.get('[class="badge badge-dark poster-badge"]').should('not.exist')
   cy.get('[class="row"]').should('not.empty')
+  cy.url().should('contain', "https://la-meute.jeremy-gueriba.fr/videos/favorites/1/1")
 });
   
 Then("I only have movies displayed", () => {
   cy.get(':nth-child(4) > .page-link').click()
-  cy.url().should('contain', "https://la-meute.jeremy-gueriba.fr/videos/favorites/2/1")
   cy.get('[class="row"]').should('not.empty')
   cy.get('[class="badge badge-dark poster-badge"]').should('not.exist')
+  cy.url().should('contain', "https://la-meute.jeremy-gueriba.fr/videos/favorites/2/1")
+
 });
