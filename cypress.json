@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://stg-fr.rajapack.xyz",
+    "baseUrl": "https://la-meute.jeremy-gueriba.fr/login?referer=https://la-meute.jeremy-gueriba.fr/",
     "reporter": "cypress-mochawesome-reporter",
     "reporterOptions": {
         "reportDir": "cypress/report",

@@ -6,15 +6,9 @@
         }
     },
     {
-        "approval": {
-            "email": "approvalgp3@data.fr",
-            "password": "test"
-        }
-    },
-    {
-        "buyer": {
-            "email": "byergp3@data.fr",
-            "password": "test"
+        "user": {
+            "email": "Arnaud",
+            "password": "toutou"
         }
     }
 ]
